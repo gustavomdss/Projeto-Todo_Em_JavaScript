@@ -72,18 +72,16 @@ a {
 
 .cancelar {
   
-  margin-left: auto;
-  font-size: .7em;
-  background-color: rgb(223, 76, 76);
-  color: white;
-  border-radius: 50vh;
-  padding: 5px 10px;
+  width: 40px;
+  height: 30px;
+  margin-left: 150px;
   cursor: pointer;
 }
 /* Nova tarefa ----------------------------------------------------------- */
 
 .nova-tarefa {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: rgb(255, 255, 255);
   width: 100%;
@@ -139,6 +137,16 @@ a {
   cursor: pointer;
   text-align: center;
   color: grey;
+}
+.botaoInserir {
+  width: 2em;
+  height: 2em;
+  background-color: greenyellow;
+  margin-right: 1em;
+  border-radius: 50%;
+  text-align: center;
+  color: rgb(93, 230, 39);
+  transition: 1.5s;
 }
 
 .not-done {

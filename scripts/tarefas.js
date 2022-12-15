@@ -55,13 +55,16 @@ form.addEventListener('submit', function (event) {
 
     //previnir evento default
     event.preventDefault();
-    if (inputTarefa.value.length >= 5) {
+    // validação do campo inserir tarefa
+    if (descTask.length >= 5) {
         let post = {
             description: descTask,
             completed: false
         }
         let postJson = JSON.stringify(post)
         postaTask(postJson);
+    }else{
+        alert("Insira no minimo 5 caracteres!")
     }
 })
 
@@ -73,15 +76,15 @@ async function atualizaTasks(jwt) {
             "authorization": `${jwt}`
         }
     }
-    console.log(requestConfig)
+    
     //try/catch
     try{
         let lista = await fetch(`${baseUrl()}/tasks`, requestConfig)
-        console.log(lista.status)
+        
         
         if (lista.status == 200) {
             let listaResponse = await lista.json();
-            console.log(listaResponse)
+            
             removerSkeleton("skeleton");
             renderizaTasks(listaResponse);
             
@@ -109,7 +112,7 @@ function renderizaTasks(array) {
                     <p class="nome">${array[i].description}</p>
                     <p class="timestamp">Criada em: ${array[i].createdAt}</p>
                 </div>
-                <div class="cancelar" id="clearTask" onclick="apagaTask(${array[i].id})"> Apagar Tarefa</div>
+                <img src="./assets/trash.jpg" alt="" class="cancelar" id="clearTask" onclick="apagaTask(${array[i].id})">
             </li>`
 
         li.insertBefore(btnDiv, li.firstChild);
@@ -142,10 +145,10 @@ async function postaTask(response) {
         if (post.status == 201) {
             let postResponse = [await post.json()];
             renderizaTasks(postResponse);
-            console.log('posta task FOI MERMAO')
+            
         }
     } catch (error) {
-        console.log('posta task não foi')
+        alert("Tarefa não inserida! Erro!")
     }
 }
 
@@ -153,15 +156,13 @@ async function postaTask(response) {
 function stateBtn(li, status) {
     // let btn = document.querySelectorAll('.stateBtn');
     // btn.forEach(btn => {
-        console.log(li);
+        
     li.addEventListener('click', function () {
 
         let parentNode = this.parentNode;
         let id = parentNode.id;
         
-        console.log('abaixo');
-        console.log(id)
-        console.log(status)
+        
         //Corpo da requisição que vai para a API.
         let body = {
             "completed": !status
@@ -203,7 +204,7 @@ async function changeStatus(body, id) {
         let update = await fetch(`${baseUrl()}/tasks/${id}`, requestConfig)
         if (update.status == 200) {
             let updateJson = [await update.json()]
-            console.log(updateJson)
+            
             renderizaTasks(updateJson)
         } else {
             throw update;

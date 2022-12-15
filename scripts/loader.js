@@ -26,7 +26,7 @@ function removerSkeleton(conteiner) {
   const conteinerTarefas = document.querySelector(conteiner);
 
   let skeletons = document.querySelectorAll(`#${conteiner}`);
-  console.log(skeletons)
+  
   for (let i = 0; i < skeletons.length; i++) {
     skeletons[i].parentNode.removeChild(skeletons[i])
   }
