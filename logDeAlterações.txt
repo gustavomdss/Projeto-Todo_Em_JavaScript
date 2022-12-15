@@ -1,0 +1,33 @@
+LOG DE ALTERAÇÕES (solicitada pelo professor)
+
+Gabriel Teodoro = {
+    validações de login e cadastro,
+    conexão api pagina de Cadastro,
+    conexão api Tarefas,
+    manipulação de DOM das tasks,
+    documentação basica do codigo (comentarios)
+    CSS pag.Index//signup//Tarefas
+    bloqueio dos botões de login/signup
+    parcial skeleton
+}
+
+Gustavo Dias = {
+    conexão api pagina de login,
+    conexão api users/getMe
+    conexão api user delete
+    botão de finalização
+    implementação de skeleton
+    comentários(documentação do codigo)
+}
+
+Matheus Galvão = {
+
+}
+
+Darlan = {
+    
+}
+
+Werlon Lima = {
+
+}
