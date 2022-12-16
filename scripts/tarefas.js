@@ -112,7 +112,7 @@ function renderizaTasks(array) {
                     <p class="nome">${array[i].description}</p>
                     <p class="timestamp">Criada em: ${array[i].createdAt}</p>
                 </div>
-                <img src="./assets/trash.jpg" alt="" class="cancelar" id="clearTask" onclick="apagaTask(${array[i].id})">
+                <img src="./assets/trash.jpg" alt="" class="cancelar" id="clearTask" onclick="apagatask01(${array[i].id})">
             </li>`
 
         li.insertBefore(btnDiv, li.firstChild);
@@ -216,10 +216,35 @@ async function changeStatus(body, id) {
 
 // função apagar task
 
+function apagatask01(idTarefa){
+    Swal.fire({
+        title: 'Voce tem certeza?',
+        text: "A operação não poderá ser desfeita...",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim! Apague!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            setTimeout(() => {
+                apagaTask(idTarefa)
+                
+            }, 2000);
+            
+          Swal.fire(
+            'Tarefa Apagada com sucesso!'
+            
+          )
+        }
+      })
+
+}
+
+let resposta;
 async function apagaTask(idTarefa){
-    let confirmaDel = confirm("Tem certeza que deseja apagar?")
-        if(confirmaDel) {
-    let btnApagar = document.getElementById("clearTask")
+    
+    
     let requestClear = {
         method: "DELETE",
         headers: {
@@ -232,22 +257,25 @@ async function apagaTask(idTarefa){
         if (clear.status == 201 || clear.status == 200) {
             let clearResponse = await clear.json();
             location.reload()
-            alert(clearResponse)
-        }
-    } catch (error) {
-        Alert('Erro! Tarefa não apagada')
+            resposta = clearResponse
+            
+            
+        }else{
+            throw clearResponse
     }
+
+}catch{
+    alert("Erro! Evento não apagado!")
 }
-}
+
 // Botão de finalizar sessão
 finalizarBtn.addEventListener("click", function(){
-    let confirma = confirm("Você tem certeza que quer sair?")
-    if(confirma == true){
-    userJwt = sessionStorage.clear();
-    window.location.href = "index.html"
+ let confirma = confirm("Você tem certeza que quer sair?")
+ if(confirma == true){
+userJwt = sessionStorage.clear();
+window.location.href = "index.html"
 }
 })
-
 
 // adicionar botão para excluir e/ou retornar
 
@@ -257,3 +285,4 @@ finalizarBtn.addEventListener("click", function(){
 // fazer o botão de finalizar sessão funcionar (limpar os dados no storage)
 
 // adicionar de maneira inteligente o PUT editando a task "postaTask"
+}
