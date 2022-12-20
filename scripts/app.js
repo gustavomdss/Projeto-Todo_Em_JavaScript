@@ -80,7 +80,7 @@ function loginSystem(objeto) {
 function loginSucesso(resposta) {
     sessionStorage.setItem("jwt", resposta.jwt)
     window.location.href = "tarefas.html"
-    console.log(resposta)
+    
 }
 //falha login
 function insucesso(resposta) {

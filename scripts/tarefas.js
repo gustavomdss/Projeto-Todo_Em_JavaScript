@@ -88,6 +88,7 @@ async function atualizaTasks(jwt) {
             removerSkeleton("skeleton");
             renderizaTasks(listaResponse);
             
+            
         
         } else {
             throw lista
@@ -112,7 +113,7 @@ function renderizaTasks(array) {
                     <p class="nome">${array[i].description}</p>
                     <p class="timestamp">Criada em: ${array[i].createdAt}</p>
                 </div>
-                <img src="./assets/trash.jpg" alt="" class="cancelar" id="clearTask" onclick="apagatask01(${array[i].id})">
+                <img src="./assets/lixeira_trans.png" alt="" class="cancelar" id="clearTask" onclick="apagatask01(${array[i].id})">
             </li>`
 
         li.insertBefore(btnDiv, li.firstChild);
@@ -145,6 +146,13 @@ async function postaTask(response) {
         if (post.status == 201) {
             let postResponse = [await post.json()];
             renderizaTasks(postResponse);
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Tarefa Inserida com sucesso!',
+                showConfirmButton: false,
+                timer: 1500
+              })
             
         }
     } catch (error) {
@@ -267,22 +275,13 @@ async function apagaTask(idTarefa){
 }catch{
     alert("Erro! Evento não apagado!")
 }
-
+}
 // Botão de finalizar sessão
 finalizarBtn.addEventListener("click", function(){
  let confirma = confirm("Você tem certeza que quer sair?")
- if(confirma == true){
+ if(confirma){
 userJwt = sessionStorage.clear();
 window.location.href = "index.html"
 }
 })
 
-// adicionar botão para excluir e/ou retornar
-
-
-// adicionar alteração do nome com a função async getMe (colocar no DOMContentLoaded)
-
-// fazer o botão de finalizar sessão funcionar (limpar os dados no storage)
-
-// adicionar de maneira inteligente o PUT editando a task "postaTask"
-}
