@@ -1,3 +1,3 @@
-# projetoIntregador-Front2
+# projetoIntegrador-Front2
 projeto final do bimestre de FrontEnd II.
 
