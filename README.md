@@ -1,3 +1,50 @@
-# projetoIntegrador-Front2
-projeto final do bimestre de FrontEnd II.
+#PROJETO LISTA DE TAREFAS#
+
+PROJETO ELABORADO COM AS SEGUINTES FUNÇÕES:
+
+- PAGINA LOGIN
+
+- PAGINA CADASTRO USUÁRIO
+
+- PAGINA CADASTRO DE TAREFAS
+
+- ELIMINÇÃO DE TAREFAS
+
+- MARCAÇÃO DE TAREFAS REALIZADAS
+
+--------------------------------------------
+
+PARA ESTE PROJETO FORAM UTILIZADOS AS SEGUINTES PLATAFORMAS:
+
+- VSCODE
+
+- POSTMAN
+
+- BOOTSTRAP
+
+- GIT/GITHUB
+
+--------------------------------------------
+
+PARA ESTE PROJETO FORAM UTILIZADOS OS CONCEITOS:
+
+- LINGUAGEM HTML
+
+- LINGUAGEM CSS
+
+- LINGUAGEM JAVASCRIPT
+
+- UTILIZAÇÃO DE FRAMEWORK BOOTSTRAP
+
+- CONCEITOS DE VALIDAÇÕES DE DADOS EM JAVASCRIPT
+
+- UTILIZAÇÃO DE API REST
+
+-------------------------------------------
+
+ENDEREÇO PAGINA WEB:
+
+https://gustavomdss.github.io/Projeto-Todo_Em_JavaScript/
+
+
 
