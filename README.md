@@ -46,5 +46,7 @@ ENDEREÇO PAGINA WEB:
 
 https://gustavomdss.github.io/Projeto-Todo_Em_JavaScript/
 
+OBS: PARA CADASTRO O E-MAIL TEM QUE SER VALIDO E A SENHA DEVE TER NO MINIMO 8 CARACTERES.
+
 
 
